@@ -9,6 +9,7 @@ Response onRequest(RequestContext context) {
       'service': 'student_backend',
       'health': 'ok',
       'students': '/students',
+      'seed_students': '/seed_students',
     },
   );
 }

@@ -104,6 +104,7 @@ flutter run --dart-define=GATEWAY_BASE_URL=http://10.0.2.2:8081
 |---------|----------|--------|
 | Backend | `GET/POST /students` | CRUD list/create |
 | Backend | `GET/PATCH/PUT/DELETE /students/:id` | Single student |
+| Backend | `GET /seed_students` | Inserts 100 deterministic sample students (dev convenience) |
 | Gateway | `GET/POST /api/students` | Proxied to backend |
 | Gateway | `GET/PATCH/PUT/DELETE /api/students/:id` | Proxied |
 | Gateway | `POST /api/query` | Body: `{"query":"..."}` — needs `MISTRAL_API_KEY` |

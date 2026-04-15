@@ -106,4 +106,18 @@ RETURNING id, name, age, student_class
     );
     return result.isNotEmpty;
   }
+
+  /// Inserts each row using the same parameterized INSERT as [create].
+  Future<int> insertMany(List<StudentInput> rows) async {
+    var inserted = 0;
+    for (final row in rows) {
+      final err = validationMessage(row);
+      if (err.isNotEmpty) {
+        throw FormatException(err);
+      }
+      await create(row);
+      inserted++;
+    }
+    return inserted;
+  }
 }
