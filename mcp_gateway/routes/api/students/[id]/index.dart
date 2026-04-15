@@ -3,10 +3,9 @@ import 'package:student_mcp_gateway/backend_client.dart';
 import 'package:student_mcp_gateway/http_convert.dart';
 import 'package:student_mcp_gateway/request_id_tag.dart';
 
-Future<Response> onRequest(RequestContext context) async {
+Future<Response> onRequest(RequestContext context, String id) async {
   final rid = context.read<RequestIdTag>().value;
-  final id = context.request.params['id'];
-  if (id == null || id.isEmpty) {
+  if (id.isEmpty) {
     return Response.json(
       statusCode: 400,
       body: {
